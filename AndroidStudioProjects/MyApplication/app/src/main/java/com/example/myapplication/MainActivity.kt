@@ -141,13 +141,12 @@ fun MicrophoneScreen() {
         Text(text = statusText, textAlign = TextAlign.Center)
         Spacer(modifier = Modifier.height(20.dp))
 
-        // We keep the button just in case you want to stop it manually
+        // We keep the button just in case to stop it manually
         Button(onClick = {
             if (isStreaming) {
                 isStreaming = false
                 statusText = "Stopping..."
             } else {
-                // If the user manually restarts
                 if (ContextCompat.checkSelfPermission(context, Manifest.permission.RECORD_AUDIO)
                     == PackageManager.PERMISSION_GRANTED) {
                     startStreaming()
